@@ -2,7 +2,6 @@
 import { ref } from 'vue'
 import { useForm } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/zod'
-import { SpringSpinner } from 'epic-spinners'
 import { useToast } from '@/components/ui/toast/use-toast'
 
 import { schema } from './lib/schema'
@@ -64,12 +63,12 @@ const onSumbut = form.handleSubmit(async (data) => {
       </FormField>
       <Button v-if="!isLoading" type="submit" class="ml-4">Search</Button>
       <div id="app" class="my-auto ml-3" v-else>
-        <spring-spinner :animation-duration="1000" :size="30" :color="'#272E3F'" />
+        <p>Loading...</p>
       </div>
     </form>
 
     <template v-if="search">
-      <div class="mt-14 ">
+      <div class="mt-14">
         <h2 class="text-3xl font-bold text-gray-700">{{ search.wordName }}</h2>
         <h3 class="mt-2 pl-14 text-xl font-semibold text-yellow-600">{{ search.phonetic }}</h3>
       </div>
